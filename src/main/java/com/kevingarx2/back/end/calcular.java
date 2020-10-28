@@ -106,6 +106,30 @@ return resultado;
     
     return resultado;
     }
+    //calcula el porcentaje del aumento
+    public int porcentaje(double sueldo_ant, int edad,int dia,int mes,int anio,int antigedad){
+    int resultado;
+    double incremento;
+    
+    int anti=antigedad;
+    
+        if (anti<5&&edad>=22&&edad<=25) {
+            resultado=5;
+        }else if (anti<=9&&anti>=5 && edad>=26&&edad<=30) {
+          
+            resultado=8; 
+        }else if (anti>=10&&edad>30) {
+            resultado=10;    
+            
+        }else{
+            resultado=4;    
+        
+        }
+        return resultado;
+        }
+    
+    
+    
     
     
     //aroja los resultados
@@ -142,36 +166,84 @@ return resultado;
         
     return resultado;
     }
+    //calcula el bono
     public double bono(double sueldo_ant, int edad,int dia,int mes,int anio,int antigedad){
-    double resultado;
+    double resultado=0;
     double incremento;
-    calcular xd=new calcular();
+//    calcular xd=new calcular();
     int anti=antigedad;
-    
+    double temp;
         if (anti<5&&edad>=22&&edad<=25) {
+           
             incremento=sueldo_ant*.05;
-            resultado=sueldo_ant+incremento;
-        }else if (anti<=9&&anti>=5 && edad>=26&&edad<=30) {
-            incremento=sueldo_ant*.08;
-            resultado=sueldo_ant+incremento;   
-        }else if (anti>=10&&edad>30) {
-         incremento=sueldo_ant*.10;
-            resultado=sueldo_ant+incremento;    
-            
-        }else{
-        incremento=sueldo_ant*.04;
-            resultado=sueldo_ant+incremento;    
-        
-        }
-        if (resultado<10000) {
-            double dif=resultado-10000;
+            temp=sueldo_ant+incremento;
+            //xd
+              if (temp<10000) {
+            double dif=temp-10000;
             if (dif<0) {
             dif=dif*(-1);    
+            }else{
+            
+            dif=0;
+            
             }
             
             resultado=dif;
             
         }
+        }else if (anti<=9&&anti>=5 && edad>=26&&edad<=30) {
+            incremento=sueldo_ant*.08;
+            temp=sueldo_ant+incremento; 
+            //xd
+              if (temp<10000) {
+            double dif=temp-10000;
+            if (dif<0) {
+            dif=dif*(-1);    
+            }else{
+            
+            dif=0;
+            
+            }
+            
+            resultado=dif;
+            
+        }
+        }else if (anti>=10&&edad>30) {
+         incremento=sueldo_ant*.10;
+            temp=sueldo_ant+incremento;    
+            //xd
+              if (temp<10000) {
+            double dif=temp-10000;
+            if (dif<0) {
+            dif=dif*(-1);    
+            }else{
+            
+            dif=0;
+            
+            }
+            
+            resultado=dif;
+            
+        }
+        }else{
+        incremento=sueldo_ant*.04;
+            temp=sueldo_ant+incremento;   
+            //xd
+        if (temp<10000) {
+            double dif=temp-10000;
+            if (dif<0) {
+            dif=dif*(-1);    
+            }else{
+            
+            dif=0;
+            
+            }
+            
+            resultado=dif;
+            
+        }
+        }
+      
         
     return resultado;
     }
